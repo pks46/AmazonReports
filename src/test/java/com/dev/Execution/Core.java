@@ -17,8 +17,9 @@ public class Core {
 	public WebDriver driver;
 	WebDriverWait wait;
 	Properties prop;
+	String userid;
 	
-	UserProfiles profile = new UserProfiles();
+	protected UserProfiles profile = new UserProfiles();
 	
 	@BeforeSuite
 	public void BeforeStart() {
@@ -28,8 +29,10 @@ public class Core {
 			prop = new Properties();
 			prop.load(file);
 			file.close();
-			profile.setUsername("USER_ID");
-			profile.setPassword("PASSWORD");
+			profile.setUsername(prop.getProperty("USER_ID"));
+			profile.setPassword(prop.getProperty("PASSWORD"));
+			
+			
 			
 		}catch(Exception e) {
 			System.out.println("File doesn't exists!");
@@ -40,8 +43,9 @@ public class Core {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/driver/chromedriver.exe"); 
 		driver = new ChromeDriver(); 
 		driver.get(prop.getProperty("URL"));
-		driver.manage().window().maximize();	
+		driver.manage().window().maximize();
 		System.out.println(driver.getTitle());
+		
 		
 	}
 	
