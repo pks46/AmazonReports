@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+  
+<suite name="Amazon maven Suite1" >
+
+
+  <test name="Amazon Testing" >
+    <packages>
+       <package name="com.qa.test.*" />
+    </packages>
+  </test>
+ 
+  
+</suite>
