@@ -41,7 +41,7 @@ public class Core {
 		driver = new ChromeDriver(); 
 		driver.get(prop.getProperty("URL"));
 		driver.manage().window().maximize();	
-		
+		System.out.println(driver.getTitle());
 		
 	}
 	
